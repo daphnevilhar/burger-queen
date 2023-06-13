@@ -1,0 +1,18 @@
+.campo-texto input {
+    box-sizing: border-box;
+    width: 438px;
+    height: 77px;
+    left: 198px;
+    bottom: 408px;
+    background: #FFFFFF;
+    border: 5px solid #F9B025;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 18px;
+    margin: 23px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 39px;
+    color: rgba(98, 98, 98, 0.75);
+}
