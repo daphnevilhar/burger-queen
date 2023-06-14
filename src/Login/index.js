@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Botao } from '../Botao';
 import { CampoTexto } from '../CampoTexto';
+import { Acesso } from './API/api.js';
 import'./Login.css';
 
 export const Login = () => {
@@ -11,6 +12,7 @@ export const Login = () => {
     const aoSalvar = (evento) => {
         evento.preventDefault();
         console.log('Form submetido =>', email, senha)
+        console.log("api ok?", Acesso)
     }
 
     return (
