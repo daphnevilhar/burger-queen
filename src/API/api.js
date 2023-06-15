@@ -10,7 +10,4 @@ export const aoSalvar =  (email, password, evento) => {
      console.log(response.data);
     }).catch ((error) => {
     console.log(error.response.data);
-  })
-}
-
   
