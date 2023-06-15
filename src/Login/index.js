@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Botao } from '../Botao';
 import { CampoTexto } from '../CampoTexto';
-import { Acesso } from './API/api.js';
-import'./Login.css';
+import { Acesso } from '../API/api';
+import './Login.css';
 
 export const Login = () => {
 
