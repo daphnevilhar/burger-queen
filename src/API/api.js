@@ -1,18 +1,11 @@
 import axios from 'axios';
 
-const aoSalvar = (email, password, evento) => {
-  evento.preventDefault();
-  return axios.post('https://burger-queen-api-mock-beige.vercel.app/login', {
-    email,
-    password,
-  })
-    .then((response) => {
-      console.log(response.data);
-      return response.data;
-    }).catch((error) => {
-      console.log(error.response.data);
-      return error.response.data;
-    });
-};
 
-export default aoSalvar;
+export const Acesso =() =>{
+axios.post(' burger-queen-api-mock-beige.vercel.app/login')
+.then((resposta)=>{
+    console.log('TA AQUI:', resposta.data.accessToken)
+  }).catch((erro)=>{
+      console.log(erro)
+  })
+};
