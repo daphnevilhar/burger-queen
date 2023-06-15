@@ -1,32 +1,29 @@
 import { useState } from 'react';
 import { Botao } from '../Botao';
 import { CampoTexto } from '../CampoTexto';
-import { Acesso } from '../API/api';
-import './Login.css';
+import { aoSalvar } from '../API/api';
+import'./Login.css';
+
 
 export const Login = () => {
 
     const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
-
-    const aoSalvar = (evento) => {
-        evento.preventDefault();
-        console.log('Form submetido =>', email, senha)
-        console.log("api ok?", Acesso)
-    }
+    const [password, setPassword] = useState('')
 
     return (
         <section className='login'>
-            <form onSubmit={aoSalvar}>
+            <form onSubmit={(evento) => aoSalvar(email, password, evento)}>
                 <CampoTexto 
+                    type='text'
                     placeholder='Email' 
                     valor={email}
                     aoAlterado={valor => setEmail(valor)}
                 />
                 <CampoTexto 
+                    type='password'
                     placeholder='Senha' 
-                    valor={senha}
-                    aoAlterado={valor => setSenha(valor)}
+                    valor={password}
+                    aoAlterado={valor => setPassword(valor)}
                 />
                 <Botao>
                     Entrar
@@ -35,4 +32,4 @@ export const Login = () => {
         </section>
         
     )
-}
+    }
