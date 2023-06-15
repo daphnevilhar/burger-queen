@@ -1,10 +1,10 @@
 import './Logo.css';
 
-const Logo = () => (
+export const Logo = () => {
+    return (
         <div className='logo'>
-           <img src='/Imagens/Borcelle.png' alt='logo'></img>
+           <img src='/Imagens/Borcelle.png' alt='logo'></img> 
         </div>
-
-);
-
-export default Logo;
+        
+    )
+}
