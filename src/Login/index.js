@@ -1,38 +1,40 @@
 import { useState } from 'react';
-import { Botao } from '../Botao';
-import { CampoTexto } from '../CampoTexto';
-import { Acesso } from './API/api.js';
-import'./Login.css';
+import Botao from '../Botao';
+import CampoTexto from '../CampoTexto';
+import CampoErro from '../CampoErro';
+import aoSalvar from '../API/api';
+import './Login.css';
 
-export const Login = () => {
+function Login() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
+  return (
+    <section className="login">
+      <form onSubmit={(evento) => aoSalvar(email, password, evento)
+        .catch((erro) => setError(erro))
+      }>
+        <CampoTexto
+          type="text"
+          placeholder="Email"
+          valor={email}
+          aoAlterado={(valor) => setEmail(valor)}
+        />
+        <CampoTexto
+          type="password"
+          placeholder="Senha"
+          valor={password}
+          aoAlterado={(valor) => setPassword(valor)}
+        />
+        <CampoErro valor={error}/>
+        <Botao>
+          Entrar
+        </Botao>
+      </form>
+    </section>
 
-    const aoSalvar = (evento) => {
-        evento.preventDefault();
-        console.log('Form submetido =>', email, senha)
-        console.log("api ok?", Acesso)
-    }
-
-    return (
-        <section className='login'>
-            <form onSubmit={aoSalvar}>
-                <CampoTexto 
-                    placeholder='Email' 
-                    valor={email}
-                    aoAlterado={valor => setEmail(valor)}
-                />
-                <CampoTexto 
-                    placeholder='Senha' 
-                    valor={senha}
-                    aoAlterado={valor => setSenha(valor)}
-                />
-                <Botao>
-                    Entrar
-                </Botao>
-            </form>
-        </section>
-        
-    )
+  );
 }
+
+export default Login;
