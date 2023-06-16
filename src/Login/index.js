@@ -1,38 +1,39 @@
 import { useState } from 'react';
 import { Botao } from '../Botao';
 import { CampoTexto } from '../CampoTexto';
-import { Acesso } from './API/api.js';
+import { CampoErro } from '../CampoErro';
+import { aoSalvar } from '../API/api.js';
 import'./Login.css';
 
-export const Login = () => {
+export function Login() {
+  const [error, setError] = useState('');
 
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
+  function fazerLogin(evento) {
+    evento.preventDefault();
+    const email = evento.target[0].value;
+    const password = evento.target[1].value;
+    aoSalvar(email, password)
+      .then(() => {
+        console.log('entrou: ');
+      }).catch((erro) => setError(erro.response.data));
+  }
 
-    const aoSalvar = (evento) => {
-        evento.preventDefault();
-        console.log('Form submetido =>', email, senha)
-        console.log("api ok?", Acesso)
-    }
-
-    return (
-        <section className='login'>
-            <form onSubmit={aoSalvar}>
-                <CampoTexto 
-                    placeholder='Email' 
-                    valor={email}
-                    aoAlterado={valor => setEmail(valor)}
-                />
-                <CampoTexto 
-                    placeholder='Senha' 
-                    valor={senha}
-                    aoAlterado={valor => setSenha(valor)}
-                />
-                <Botao>
-                    Entrar
-                </Botao>
-            </form>
-        </section>
-        
+  return (
+    <section className="login">
+      <form onSubmit={(evento) => fazerLogin(evento)}>
+        <CampoTexto
+          type="text"
+          placeholder="Email"
+        />
+        <CampoTexto
+          type="password"
+          placeholder="Senha"
+        />
+        <CampoErro valor={error}/>
+        <Botao>
+          Entrar
+        </Botao>
+      </form>
+    </section>
     )
-}
+};
