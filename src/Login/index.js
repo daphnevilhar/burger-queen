@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import Botao from '../Botao';
-import CampoTexto from '../CampoTexto';
-import CampoErro from '../CampoErro';
-import aoSalvar from '../API/api';
-import './Login.css';
+import { Botao } from '../Botao';
+import { CampoTexto } from '../CampoTexto';
+import { CampoErro } from '../CampoErro';
+import { aoSalvar } from '../API/api.js';
+import'./Login.css';
 
-function Login() {
+export function Login() {
   const [error, setError] = useState('');
 
   function fazerLogin(evento) {
@@ -35,8 +35,5 @@ function Login() {
         </Botao>
       </form>
     </section>
-
-  );
-}
-
-export default Login;
+    )
+};
