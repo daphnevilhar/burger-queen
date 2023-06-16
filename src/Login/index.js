@@ -6,36 +6,28 @@ import aoSalvar from '../API/api';
 import './Login.css';
 
 function Login() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  function fazerLogin (evento){
-   evento.preventDefault();
-   aoSalvar(email, password)
-   .then(()=> {
-    console.log('entrou: ')
-   }).catch ((erro) => setError(erro.response.data))
-
+  function fazerLogin(evento) {
+    evento.preventDefault();
+    const email = evento.target[0].value;
+    const password = evento.target[1].value;
+    aoSalvar(email, password)
+      .then(() => {
+        console.log('entrou: ');
+      }).catch((erro) => setError(erro.response.data));
   }
-  
 
   return (
     <section className="login">
-      <form onSubmit={(evento) => fazerLogin(evento)
-        
-      }>
+      <form onSubmit={(evento) => fazerLogin(evento)}>
         <CampoTexto
           type="text"
           placeholder="Email"
-          valor={email}
-          aoAlterado={(valor) => setEmail(valor)}
         />
         <CampoTexto
           type="password"
           placeholder="Senha"
-          valor={password}
-          aoAlterado={(valor) => setPassword(valor)}
         />
         <CampoErro valor={error}/>
         <Botao>
@@ -46,6 +38,5 @@ function Login() {
 
   );
 }
-
 
 export default Login;
