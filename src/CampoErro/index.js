@@ -3,7 +3,8 @@ import './CampoErro.css';
 function CampoErro(props) {
   return (
     <div className="campo-erro">
-      <p value={props.valor} />
+      <p>{props.valor}</p>
+  
     </div>
   );
 }

@@ -10,10 +10,20 @@ function Login() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
+  function fazerLogin (evento){
+   evento.preventDefault();
+   aoSalvar(email, password)
+   .then(()=> {
+    console.log('entrou: ')
+   }).catch ((erro) => setError(erro.response.data))
+
+  }
+  
+
   return (
     <section className="login">
-      <form onSubmit={(evento) => aoSalvar(email, password, evento)
-        .catch((erro) => setError(erro))
+      <form onSubmit={(evento) => fazerLogin(evento)
+        
       }>
         <CampoTexto
           type="text"
