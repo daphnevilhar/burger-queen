@@ -16,3 +16,11 @@
     line-height: 39px;
     color: rgba(98, 98, 98, 0.75);
 }
+
+@media (max-width: 447px) {
+    .campo-texto input {
+      height: 150%;
+      width: 90%;
+    }
+  
+  }
