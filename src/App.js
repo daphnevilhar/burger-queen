@@ -1,13 +1,30 @@
 import './App.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 import { Login } from './Login';
-import { Logo } from './Logo';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Login/>,
+  },
+    {
+      path: "/teste-palomita",
+      element: <div>Hello world!</div>,
+    },
+]);
+
+
 
 function App() {
   return (
-    <div className="App">
-      <Logo />
-      <Login />
-    </div>
+  <RouterProvider router={router} />
+    // <div className="App">
+    //   <Logo />
+    //   <Login />
+    // </div>
   );
 }
 

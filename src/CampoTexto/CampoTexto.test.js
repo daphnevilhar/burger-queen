@@ -1,8 +1,14 @@
 import { render, screen } from '@testing-library/react';
-import CampoTexto from './index';
+import { CampoTexto } from './index';
 
-test('Deve retornar o valor digitado', () => {
-  render(<CampoTexto/>);
-  const email = screen.getByText('tata@gmail.com');
-  expect(email).toBeInTheDocument();
+test('Deve adicionar o atributo placeholder ao input', () => {
+  render(<CampoTexto placeholder={'teste'}/>);
+  const input = screen.getByPlaceholderText('teste');
+  expect(input).toBeInTheDocument();
+});
+
+test('Deve adicionar o atributo type ao input', () => {
+  render(<CampoTexto type={'teste'}/>);
+  const input = screen.getByRole("textbox")
+  expect(input).toHaveAttribute("type", "teste");
 });
