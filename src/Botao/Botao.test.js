@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Botao from './index';
+import { Botao } from './index';
 
 describe('<Botao/>', () => {
   it('Deve renderizar um botão corretamente', () => {

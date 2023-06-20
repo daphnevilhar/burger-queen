@@ -1,12 +1,15 @@
 import { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import { Botao } from '../Botao';
 import { CampoTexto } from '../CampoTexto';
 import { CampoErro } from '../CampoErro';
 import { aoSalvar } from '../API/api.js';
+import { Logo } from '../Logo';
 import'./Login.css';
 
 export function Login() {
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   function fazerLogin(evento) {
     evento.preventDefault();
@@ -14,11 +17,13 @@ export function Login() {
     const password = evento.target[1].value;
     aoSalvar(email, password)
       .then(() => {
-        console.log('entrou: ');
+        navigate("/teste-palomita")
       }).catch((erro) => setError(erro.response.data));
   }
 
   return (
+    <div className="App">
+    <Logo/>
     <section className="login">
       <form onSubmit={(evento) => fazerLogin(evento)}>
         <CampoTexto
@@ -35,5 +40,6 @@ export function Login() {
         </Botao>
       </form>
     </section>
+    </div>
     )
 };
