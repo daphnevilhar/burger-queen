@@ -2,8 +2,8 @@
 .switch {
     position: relative;
     display: inline-block;
-    width: 60px;
-    height: 34px;
+    width: 100px;
+    height: 50px;
   }
   
   /* Hide default HTML checkbox */
@@ -21,7 +21,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #FFFFFF;
     -webkit-transition: .4s;
     transition: .4s;
   }
@@ -29,27 +29,27 @@
   .slider:before {
     position: absolute;
     content: "";
-    height: 26px;
-    width: 26px;
+    height: 42px;
+    width: 42px;
     left: 4px;
     bottom: 4px;
-    background-color: white;
+    background-color: #F9B025;
     -webkit-transition: .4s;
     transition: .4s;
   }
   
   input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #FFFFFF;
   }
   
   input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
+    box-shadow: 0 0 1px #FFFFFF;
   }
   
   input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
+    -webkit-transform: translateX(50px);
+    -ms-transform: translateX(50px);
+    transform: translateX(50px);
   }
   
   /* Rounded sliders */
@@ -61,30 +61,51 @@
     border-radius: 50%;
   }
 
-  .root {
+  body {
+    margin-top: 5%;
+    color: #FFFFFF;
+    background-color: #171717;
+  }
+
+  .switch {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .cardapio {
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+  }
+
+  .filtros {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 40px;
+  }
+  
+  button {
+    max-width: 25%;
   }
 
   .posicao-cards {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
     gap: 15px;
-  }
-
-  button {
-    max-width: 30%;
   }
 
   .card {
     max-width: 40%;
     border: 5px solid #F9B025;
     border-radius: 18px;
+    padding: 5px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #FFFFFF;
   }
 
   .card img {
