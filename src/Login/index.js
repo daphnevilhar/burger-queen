@@ -17,7 +17,7 @@ export function Login() {
     const password = evento.target[1].value;
     aoSalvar(email, password)
       .then(() => {
-        navigate("/teste-palomita")
+        navigate("/cardapio")
       }).catch((erro) => setError(erro.response.data));
   }
 

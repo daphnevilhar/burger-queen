@@ -4,16 +4,17 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import { Login } from './Login';
+import { Cardapio } from './Cardapio';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Login/>,
   },
-    {
-      path: "/teste-palomita",
-      element: <div>Hello world!</div>,
-    },
+  {
+    path: "/cardapio",
+    element: <Cardapio/>,
+  },
 ]);
 
 
