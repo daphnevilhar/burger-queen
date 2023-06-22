@@ -16,7 +16,8 @@ export function Login() {
     const email = evento.target[0].value;
     const password = evento.target[1].value;
     aoSalvar(email, password)
-      .then(() => {
+      .then((response) => {
+        localStorage.setItem("token", response.data.accessToken)
         navigate("/cardapio")
       }).catch((erro) => setError(erro.response.data));
   }
