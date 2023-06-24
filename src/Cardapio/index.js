@@ -34,9 +34,15 @@ export function Cardapio() {
                 {produtos.map((produto) =>
                 <div className='card'>
                 <img src={produto.image} alt=''></img>
-                <p>{produto.name}</p>
-                <p>{produto.price}</p>
-                </div>
+                <p className='descricao'>{produto.name}</p>
+                <p>R${produto.price}</p>
+                <div className='adicionar'>    
+                <Botao> - </Botao>
+                <p className='adicionar'> 0</p>
+                <Botao> + </Botao>
+                    </div>
+                  </div>
+              
                 )}
             </section>
         

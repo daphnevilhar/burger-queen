@@ -88,6 +88,7 @@
   
   button {
     max-width: 25%;
+    margin: 0 5px;
   }
 
   .posicao-cards {
@@ -96,8 +97,39 @@
     justify-content: space-evenly;
     gap: 15px;
   }
+  .descricao{
+    margin: 20%;
+    margin-bottom: 20%;
+    justify-content: space-between;
+    padding: -10%;
+    
+  }
+
+  .adicionar {
+    position: absolute; 
+    bottom: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%; 
+    margin-bottom: 10px; 
+    
+  }
+  .contagem{
+    justify-content: center;
+    margin: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 5px;
+
+   
+    
+  }
 
   .card {
+    position: relative;
     max-width: 40%;
     border: 5px solid #F9B025;
     border-radius: 18px;
@@ -109,5 +141,5 @@
   }
 
   .card img {
-    max-width: 80%;
+    max-width: 50%;
   }
