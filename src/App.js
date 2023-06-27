@@ -5,6 +5,8 @@ import {
 } from "react-router-dom";
 import { Login } from './Login';
 import { Cardapio } from './Cardapio';
+import { Pedido } from './Pedidos'
+
 
 const router = createBrowserRouter([
   {
@@ -14,6 +16,10 @@ const router = createBrowserRouter([
   {
     path: "/cardapio",
     element: <Cardapio/>,
+  },
+  {
+    path: "/pedido",
+    element: <Pedido/>,
   },
 ]);
 

@@ -1,0 +1,10 @@
+.pagina-pedido{
+    display: flex;
+    justify-content: center;   
+}
+
+.botao{
+    justify-content: center;
+    width: 30%;
+    height: 35%;
+}
