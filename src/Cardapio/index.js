@@ -3,8 +3,10 @@ import React, { useState, useEffect } from 'react';
 import { Botao } from '../Botao';
 import { Switch } from '../Switch';
 import { acessarCardapio } from '../API/api';
+import { useNavigate } from 'react-router-dom';
 
 export function Cardapio() {
+    const navigate = useNavigate();
     const [produtos, setProdutos] = useState([]);
     useEffect(() => {
     acessarCardapio(localStorage.getItem("token"))
@@ -15,9 +17,9 @@ export function Cardapio() {
     return(
         <section className='cardapio'>
 
-            <section className='switch'>
-                <Switch/>
-            </section>
+            <section  className='switch'/>
+                <Switch onChange={()=>navigate("/pedido")}/>
+                
             
             <section className='filtros'>
                 <Botao>
@@ -27,25 +29,24 @@ export function Cardapio() {
                     Almoço
                 </Botao><Botao>
                     Bebidas
-                </Botao>  
+                </Botao>
             </section>
-
+            
             <section className='posicao-cards'>
-                {produtos.map((produto) =>
-                <div className='card'>
-                <img src={produto.image} alt=''></img>
-                <p className='descricao'>{produto.name}</p>
-                <p>R${produto.price}</p>
-                <div className='adicionar'>    
-                <Botao> - </Botao>
-                <p className='adicionar'> 0</p>
-                <Botao> + </Botao>
+                {produtos.map((produto) => <div className='card'>
+                    <img src={produto.image} alt=''></img>
+                    <p className='descricao'>{produto.name}</p>
+                    <p>R${produto.price}</p>
+                    <div className='adicionar'>
+                        <Botao> - </Botao>
+                        <p className='adicionar'> 0</p>
+                        <Botao> + </Botao>
                     </div>
-                  </div>
-              
+                </div>
+
                 )}
             </section>
-        
         </section>
+        
     )
 }

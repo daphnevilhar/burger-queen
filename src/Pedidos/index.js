@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Botao } from '../Botao';
 import { CampoTexto } from '../CampoTexto';
 import { Switch } from '../Switch';
+import { useNavigate } from 'react-router-dom';
 
 
 // function fazerPedido (){
@@ -16,9 +17,15 @@ import { Switch } from '../Switch';
 
 
 export const Pedido = (produto) => {
+    const [checkbox, setCheckbox] = useState(true);
+    const navigate = useNavigate();
+    function handleCheckboxChange (){
+        setCheckbox(false) 
+        navigate('/cardapio')
+    }
     return ( 
         <><div className='pagina-pedido'>
-            <Switch />
+            <Switch checked={checkbox} onChange={handleCheckboxChange} />
         </div><section className='enviar-pedido'>
                 <form onSubmit={(evento) => fazerPedido(evento)}>
                     <CampoTexto 
