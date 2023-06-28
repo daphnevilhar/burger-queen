@@ -37,9 +37,12 @@ export function Cardapio() {
                     <img src={produto.image} alt=''></img>
                     <p className='descricao'>{produto.name}</p>
                     <p>R${produto.price}</p>
+                    <p className='contagem'> 0</p>
+                    
                     <div className='adicionar'>
+                        
                         <Botao> - </Botao>
-                        <p className='adicionar'> 0</p>
+                        
                         <Botao> + </Botao>
                     </div>
                 </div>

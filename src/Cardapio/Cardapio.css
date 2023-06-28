@@ -97,12 +97,10 @@
     justify-content: space-evenly;
     gap: 15px;
   }
-  .descricao{
-    margin: 20%;
-    margin-bottom: 20%;
-    justify-content: space-between;
-    padding: -10%;
-    
+  .descricao p {
+    display: block;
+    margin: 0;
+    padding: 0;
   }
 
   .adicionar {
@@ -117,7 +115,7 @@
     margin-bottom: 10px; 
     
   }
-  .contagem{
+  .contagem button{
     justify-content: center;
     margin: 10%;
     margin-left: 20%;
